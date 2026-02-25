@@ -67,13 +67,25 @@ const MackenSound = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const [volume, setVolume] = useState(0.7);
     const [toastMessage, setToastMessage] = useState('');
-    const [currentView, setCurrentView] = useState('home');
-    const [activePlaylist, setActivePlaylist] = useState(null);
+    const [isDraggingProgress, setIsDraggingProgress] = useState(false);
+    const [isDraggingVolume, setIsDraggingVolume] = useState(false);
+
+    // View History & Navigation
+    const [viewHistory, setViewHistory] = useState([{ view: 'home', playlist: null }]);
+    const [historyIndex, setHistoryIndex] = useState(0);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Derived state for current view
+    const currentView = viewHistory[historyIndex].view;
+    const activePlaylist = viewHistory[historyIndex].playlist;
+
     const [nowPlaying, setNowPlaying] = useState({
         title: 'Midnight Serenade',
-        artist: 'Miles Davis Quintent',
+        artist: 'Miles Davis Quintet',
         img: '/images/lofi_cafe.png',
-        audioSrc: '/audio/track1.mp3'
+        audioSrc: '/audio/track1.mp3',
+        playlist: null,
+        index: 0
     });
     const audioRef = useRef(null);
 
@@ -115,27 +127,60 @@ const MackenSound = () => {
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
-    const handleProgressClick = (e) => {
+    const handleProgressChange = (e) => {
         if (!audioRef.current || duration === 0) return;
         const rect = e.currentTarget.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const width = rect.width;
-        const newTime = (clickX / width) * duration;
+        let clickX = e.clientX - rect.left;
+        if (clickX < 0) clickX = 0;
+        if (clickX > rect.width) clickX = rect.width;
+
+        const newTime = (clickX / rect.width) * duration;
         audioRef.current.currentTime = newTime;
         setCurrentTime(newTime);
         setProgress((newTime / duration) * 100);
-        handleInteraction('Tempo alterado');
     };
 
-    const handleVolumeClick = (e) => {
+    const handleVolumeChange = (e) => {
         const rect = e.currentTarget.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const width = rect.width;
-        let newVolume = clickX / width;
+        let clickX = e.clientX - rect.left;
+        let newVolume = clickX / rect.width;
         if (newVolume < 0) newVolume = 0;
         if (newVolume > 1) newVolume = 1;
         setVolume(newVolume);
-        handleInteraction('Volume alterado');
+    };
+
+    const handleProgressPointerDown = (e) => {
+        setIsDraggingProgress(true);
+        e.currentTarget.setPointerCapture(e.pointerId);
+        handleProgressChange(e);
+    };
+
+    const handleProgressPointerMove = (e) => {
+        if (isDraggingProgress) {
+            handleProgressChange(e);
+        }
+    };
+
+    const handleProgressPointerUp = (e) => {
+        setIsDraggingProgress(false);
+        e.currentTarget.releasePointerCapture(e.pointerId);
+    };
+
+    const handleVolumePointerDown = (e) => {
+        setIsDraggingVolume(true);
+        e.currentTarget.setPointerCapture(e.pointerId);
+        handleVolumeChange(e);
+    };
+
+    const handleVolumePointerMove = (e) => {
+        if (isDraggingVolume) {
+            handleVolumeChange(e);
+        }
+    };
+
+    const handleVolumePointerUp = (e) => {
+        setIsDraggingVolume(false);
+        e.currentTarget.releasePointerCapture(e.pointerId);
     };
 
     const jazzClassics = [
@@ -159,18 +204,40 @@ const MackenSound = () => {
         { name: "Modern Jazz Fusion", color: "#6a2785", img: "/images/synthwave_beats.png", tracks: modernJazz }
     ];
 
+    const allTracks = [...jazzClassics, ...modernJazz];
+    const searchResults = searchQuery ? allTracks.filter(t =>
+        t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.artist.toLowerCase().includes(searchQuery.toLowerCase())
+    ) : [];
+
+    const navigateTo = (view, playlist = null) => {
+        const newHistory = viewHistory.slice(0, historyIndex + 1);
+        newHistory.push({ view, playlist });
+        setViewHistory(newHistory);
+        setHistoryIndex(newHistory.length - 1);
+    };
+
+    const goBack = () => {
+        if (historyIndex > 0) setHistoryIndex(historyIndex - 1);
+    };
+
+    const goForward = () => {
+        if (historyIndex < viewHistory.length - 1) setHistoryIndex(historyIndex + 1);
+    };
+
     const openPlaylist = (p) => {
-        setActivePlaylist(p);
-        setCurrentView('playlist');
+        navigateTo('playlist', p);
         handleInteraction(`Abrir Playlist: ${p.name}`);
     };
 
-    const playTrack = (track, playlistImg) => {
+    const playTrack = (track, playlistImg, trackList = null, index = 0) => {
         setNowPlaying({
             title: track.title,
             artist: track.artist,
             img: playlistImg,
-            audioSrc: track.file
+            audioSrc: track.file,
+            playlist: trackList,
+            index: index
         });
 
         // Timeout to allow React to update the audio tag src before playing
@@ -184,6 +251,16 @@ const MackenSound = () => {
         }, 50);
 
         handleInteraction(`Tocar: ${track.title}`);
+    };
+
+    const skipTrack = (direction) => {
+        if (!nowPlaying.playlist) return;
+        let newIndex = nowPlaying.index + direction;
+        if (newIndex >= nowPlaying.playlist.length) newIndex = 0;
+        if (newIndex < 0) newIndex = nowPlaying.playlist.length - 1;
+
+        const nextTrack = nowPlaying.playlist[newIndex];
+        playTrack(nextTrack, nowPlaying.img, nowPlaying.playlist, newIndex);
     };
 
     return (
@@ -200,13 +277,13 @@ const MackenSound = () => {
                     <h2>MackenSound</h2>
                 </div>
                 <nav className="ms-nav">
-                    <a href="#" className={currentView === 'home' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setCurrentView('home'); }}>
+                    <a href="#" className={currentView === 'home' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('home'); }}>
                         <Icons.Home /> Home
                     </a>
-                    <a href="#" className={currentView === 'search' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setCurrentView('search'); }}>
+                    <a href="#" className={currentView === 'search' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('search'); }}>
                         <Icons.Search /> Search
                     </a>
-                    <a href="#" className={currentView === 'library' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setCurrentView('library'); }}>
+                    <a href="#" className={currentView === 'library' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('library'); }}>
                         <Icons.Library /> Your Library
                     </a>
                 </nav>
@@ -219,8 +296,8 @@ const MackenSound = () => {
             <main className="ms-main">
                 <header className="ms-header">
                     <div className="ms-nav-arrows">
-                        <button className="ms-circle-btn" onClick={() => handleInteraction('Voltar página')}>&lt;</button>
-                        <button className="ms-circle-btn" onClick={() => handleInteraction('Avançar página')}>&gt;</button>
+                        <button className="ms-circle-btn" onClick={goBack} disabled={historyIndex === 0} style={{ opacity: historyIndex === 0 ? 0.5 : 1 }}>&lt;</button>
+                        <button className="ms-circle-btn" onClick={goForward} disabled={historyIndex === viewHistory.length - 1} style={{ opacity: historyIndex === viewHistory.length - 1 ? 0.5 : 1 }}>&gt;</button>
                     </div>
                     <div className="ms-user" onClick={() => handleInteraction('Abrir Perfil de Usuário')}>
                         <span className="ms-avatar">F</span>
@@ -249,11 +326,28 @@ const MackenSound = () => {
                     ) : currentView === 'search' ? (
                         <div style={{ padding: '2rem' }}>
                             <h1>Search</h1>
-                            <input type="text" placeholder="What do you want to listen to?" style={{
-                                width: '100%', maxWidth: '400px', padding: '1rem',
-                                borderRadius: '50px', border: 'none', marginTop: '1rem',
-                                background: '#242424', color: 'white', fontSize: '1rem'
-                            }} />
+                            <input type="text" placeholder="What do you want to listen to?"
+                                value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                                style={{
+                                    width: '100%', maxWidth: '400px', padding: '1rem',
+                                    borderRadius: '50px', border: 'none', marginTop: '1rem',
+                                    background: '#242424', color: 'white', fontSize: '1rem'
+                                }} />
+
+                            {searchQuery && (
+                                <div className="ms-track-list" style={{ marginTop: '2rem' }}>
+                                    {searchResults.length > 0 ? searchResults.map((track, i) => (
+                                        <div className="ms-track-row" key={i} onClick={() => playTrack(track, '/images/synthwave_beats.png', searchResults, i)}>
+                                            <div className="ms-track-title-col" style={{ gridColumn: '1 / 3' }}>
+                                                <span className="ms-track-name" style={{ color: nowPlaying.title === track.title ? 'var(--ms-accent)' : 'white' }}>{track.title}</span>
+                                                <span className="ms-track-artist">{track.artist}</span>
+                                            </div>
+                                            <span className="ms-track-album" style={{ gridColumn: '3 / 4' }}>{track.album}</span>
+                                            <span className="ms-track-duration" style={{ gridColumn: '4 / 5' }}>{track.duration}</span>
+                                        </div>
+                                    )) : <p style={{ color: 'var(--ms-text-subdued)' }}>No results found for "{searchQuery}"</p>}
+                                </div>
+                            )}
                         </div>
                     ) : currentView === 'library' ? (
                         <div style={{ padding: '2rem' }}>
@@ -275,7 +369,7 @@ const MackenSound = () => {
                                     <h1 style={{ fontSize: '4rem', margin: '0.5rem 0' }}>{activePlaylist.name}</h1>
                                     <p style={{ color: 'var(--ms-text-subdued)' }}>{activePlaylist.tracks.length} songs, about 1 hr 15 min</p>
                                     <div style={{ marginTop: '1rem' }}>
-                                        <button className="ms-btn-play ms-play-large" onClick={() => playTrack(activePlaylist.tracks[0], activePlaylist.img)} style={{ width: '56px', height: '56px', fontSize: '1.5rem', background: 'var(--ms-accent)' }}><Icons.Play /></button>
+                                        <button className="ms-btn-play ms-play-large" onClick={() => playTrack(activePlaylist.tracks[0], activePlaylist.img, activePlaylist.tracks, 0)} style={{ width: '56px', height: '56px', fontSize: '1.5rem', background: 'var(--ms-accent)' }}><Icons.Play /></button>
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +382,7 @@ const MackenSound = () => {
                                     <span><Icons.Clock /></span>
                                 </div>
                                 {activePlaylist.tracks.map((track, i) => (
-                                    <div className="ms-track-row" key={i} onClick={() => playTrack(track, activePlaylist.img)}>
+                                    <div className="ms-track-row" key={i} onClick={() => playTrack(track, activePlaylist.img, activePlaylist.tracks, i)}>
                                         <span className="ms-track-num">{i + 1}</span>
                                         <div className="ms-track-title-col">
                                             <span className="ms-track-name" style={{ color: nowPlaying.title === track.title ? 'var(--ms-accent)' : 'white' }}>{track.title}</span>
@@ -311,7 +405,7 @@ const MackenSound = () => {
                     src={nowPlaying.audioSrc}
                     onTimeUpdate={handleTimeUpdate}
                     onLoadedMetadata={handleLoadedMetadata}
-                    onEnded={() => setIsPlaying(false)}
+                    onEnded={() => skipTrack(1)}
                 />
 
                 <div className="ms-now-playing">
@@ -331,15 +425,18 @@ const MackenSound = () => {
 
                 <div className="ms-controls">
                     <div className="ms-buttons">
-                        <button className="ms-btn-small" onClick={() => handleInteraction('Voltar faixa')}><Icons.Prev /></button>
+                        <button className="ms-btn-small" onClick={() => skipTrack(-1)}><Icons.Prev /></button>
                         <button className="ms-btn-play" onClick={togglePlay}>
                             {isPlaying ? <Icons.Pause /> : <Icons.Play />}
                         </button>
-                        <button className="ms-btn-small" onClick={() => handleInteraction('Avançar faixa')}><Icons.Next /></button>
+                        <button className="ms-btn-small" onClick={() => skipTrack(1)}><Icons.Next /></button>
                     </div>
                     <div className="ms-progress-bar">
                         <span>{formatTime(currentTime)}</span>
-                        <div className="ms-slider" onClick={handleProgressClick}>
+                        <div className="ms-slider"
+                            onPointerDown={handleProgressPointerDown}
+                            onPointerMove={handleProgressPointerMove}
+                            onPointerUp={handleProgressPointerUp}>
                             <div className="ms-slider-fill" style={{ width: `${progress}%` }}></div>
                         </div>
                         <span>{formatTime(duration)}</span>
@@ -348,7 +445,10 @@ const MackenSound = () => {
 
                 <div className="ms-volume">
                     <Icons.Speaker />
-                    <div className="ms-slider" onClick={handleVolumeClick}>
+                    <div className="ms-slider"
+                        onPointerDown={handleVolumePointerDown}
+                        onPointerMove={handleVolumePointerMove}
+                        onPointerUp={handleVolumePointerUp}>
                         <div className="ms-slider-fill" style={{ width: `${volume * 100}%` }}></div>
                     </div>
                 </div>

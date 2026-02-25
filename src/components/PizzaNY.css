@@ -594,4 +594,38 @@
     .pizza-header-actions .pizza-delivery-info {
         display: none;
     }
+
+    .pizza-main {
+        padding: 16px;
+    }
+
+    .pizza-hero {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .pizza-hero-overlay {
+        position: relative;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 24px;
+    }
+
+    .pizza-hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .pizza-header-content {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .pizza-search-bar {
+        max-width: 100%;
+        order: 3;
+        flex: 1 1 100%;
+    }
+
+    .pizza-grid {
+        grid-template-columns: 1fr;
+    }
 }

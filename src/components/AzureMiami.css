@@ -701,4 +701,48 @@
         gap: 20px;
         text-align: center;
     }
+
+    .az-section {
+        padding: 80px 0;
+    }
+
+    .az-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .az-floating-card {
+        position: static;
+        margin-top: 20px;
+    }
+
+    .az-img-large {
+        height: 400px;
+    }
+
+    .az-video-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .az-container {
+        padding: 0 20px;
+    }
+
+    .az-hero-content {
+        padding-top: 60px;
+    }
+
+    .az-heading {
+        font-size: 2rem;
+    }
+
+    .az-stat-item h3 {
+        font-size: 2.5rem;
+    }
+
+    .az-footer-links {
+        flex-direction: column;
+        gap: 40px;
+    }
 }

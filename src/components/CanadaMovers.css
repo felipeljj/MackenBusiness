@@ -527,4 +527,41 @@
     .can-hero-actions {
         flex-direction: column;
     }
+
+    .can-hero {
+        padding: 80px 0;
+        min-height: auto;
+    }
+
+    .can-features,
+    .can-assessment {
+        padding: 60px 0;
+    }
+
+    .can-section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .can-assessment-info h2 {
+        font-size: 2rem;
+    }
+
+    .can-form-wrapper {
+        padding: 24px;
+    }
+
+    .can-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .can-container {
+        padding: 0 16px;
+    }
+
+    .can-hero-text h1 {
+        font-size: 1.8rem;
+    }
 }

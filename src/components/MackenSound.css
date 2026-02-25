@@ -540,7 +540,15 @@
     }
 
     .mackensound {
+        grid-template-areas:
+            "main"
+            "player";
         grid-template-columns: 1fr;
+    }
+
+    .ms-main {
+        margin: 0;
+        border-radius: 0;
     }
 
     .ms-now-playing {
@@ -553,5 +561,92 @@
 
     .ms-controls {
         max-width: 50%;
+    }
+
+    .ms-header {
+        padding: 16px;
+    }
+
+    .ms-content {
+        padding: 16px;
+    }
+
+    .ms-playlist-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ms-playlist-cover {
+        width: 160px;
+        height: 160px;
+    }
+
+    .ms-track-header {
+        display: none;
+    }
+
+    .ms-track-row {
+        grid-template-columns: 40px 1fr 40px;
+    }
+
+    .ms-track-album {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .mackensound {
+        grid-template-rows: 1fr 140px;
+    }
+
+    .ms-player {
+        flex-direction: column;
+        padding: 12px;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ms-now-playing {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .ms-like {
+        display: none;
+        /* Hide for space on mobile */
+    }
+
+    .ms-controls {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .ms-buttons {
+        gap: 24px;
+        margin-bottom: 4px;
+    }
+
+    .ms-card-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .ms-card-h span {
+        font-size: 0.9rem;
+    }
+
+    .ms-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .ms-track-row {
+        grid-template-columns: 30px 1fr 30px;
+        padding: 8px 0;
+    }
+
+    .ms-playlist-info h1 {
+        font-size: 2.5rem !important;
     }
 }

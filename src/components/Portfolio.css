@@ -11,7 +11,8 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
+    /* Increased spacing as requested */
 }
 
 .tab-btn {
@@ -37,18 +38,22 @@
     border-color: var(--text-main);
 }
 
-.portfolio-grid {
+/* DEV GRID (3 columns, static) */
+.portfolio-grid-dev {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .case-card {
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.case-card:nth-child(even) {
-    margin-top: 5rem;
+.case-card:hover {
+    transform: translateY(-8px);
 }
 
 .case-image {
@@ -57,11 +62,193 @@
     overflow: hidden;
     margin-bottom: 1.5rem;
     position: relative;
+    aspect-ratio: 16/9;
+    /* Standardized aspect ratio for smaller Dev cards */
 }
 
+/* VIDEO COVERFLOW (3D Slider) */
+.video-coverflow-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    height: 50vh;
+    /* Increased from 35vh to hold tall vertical videos */
+    min-height: 400px;
+    /* Increased from 250px so it doesn't overlap tabs */
+    perspective: 800px;
+    /* Enable 3D space */
+}
+
+.portfolio-coverflow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+.coverflow-card {
+    position: absolute;
+    width: 26%;
+    max-width: 260px;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    border-radius: 16px;
+    /* Basic state defaults */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transform: translateX(0) scale(0.6) translateZ(-200px);
+}
+
+.coverflow-video-container {
+    background-color: var(--bg-light);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.coverflow-card video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    object-fit: contain;
+}
+
+/* Active Card (Center, large, clear) */
+.coverflow-card.active {
+    transform: translateX(0) scale(1) translateZ(0);
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+    filter: blur(0);
+}
+
+/* Previous Card (Left, smaller, blurred, behind) */
+.coverflow-card.prev {
+    transform: translateX(-120%) scale(0.7) translateZ(-100px);
+    opacity: 0.6;
+    z-index: 5;
+    pointer-events: auto;
+    filter: blur(4px);
+}
+
+/* Next Card (Right, smaller, blurred, behind) */
+.coverflow-card.next {
+    transform: translateX(120%) scale(0.7) translateZ(-100px);
+    opacity: 0.6;
+    z-index: 5;
+    pointer-events: auto;
+    filter: blur(4px);
+}
+
+/* Hovering over inactive cards */
+.coverflow-card.prev:hover,
+.coverflow-card.next:hover {
+    opacity: 0.9;
+    filter: blur(2px);
+    transform: translateX(calc(var(--dir, 1) * 120%)) scale(0.75) translateZ(-50px);
+}
+
+.coverflow-card.prev:hover {
+    --dir: -1;
+}
+
+.coverflow-card.next:hover {
+    --dir: 1;
+}
+
+.video-nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.video-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.video-nav-btn.prev {
+    left: 10px;
+}
+
+.video-nav-btn.next {
+    right: 10px;
+}
+
+/* Hide inactive info */
+.case-info.hidden {
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.case-info.visible {
+    opacity: 1;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s ease 0.3s;
+    /* Delay info appearance slightly */
+}
+
+/* Volume Toggle Button */
+.volume-toggle-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: var(--transition);
+    backdrop-filter: blur(4px);
+}
+
+.volume-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.volume-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Shared image/video styles */
 .img-placeholder {
     width: 100%;
-    aspect-ratio: 4/3;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +267,8 @@
 
 .portfolio-media {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     transition: var(--transition);
     border-radius: 16px;
     display: block;
@@ -88,25 +276,91 @@
 
 .case-card:hover .portfolio-media {
     transform: scale(1.05);
+    /* Only scale dev cards slightly */
 }
 
 .case-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
     transition: var(--transition);
 }
 
 .case-card:hover .case-info h3 {
-    padding-left: 10px;
+    padding-left: 5px;
+    color: var(--accent);
 }
 
+.case-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
 @media (max-width: 992px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+    .portfolio-grid-dev {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .case-card:nth-child(even) {
-        margin-top: 0;
+    .coverflow-card {
+        width: 40%;
+    }
+
+    .coverflow-card.prev {
+        transform: translateX(-70%) scale(0.65) translateZ(-100px);
+    }
+
+    .coverflow-card.next {
+        transform: translateX(70%) scale(0.65) translateZ(-100px);
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid-dev {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .video-coverflow-wrapper {
+        height: 50vh;
+        min-height: 350px;
+        margin-top: 2rem;
+    }
+
+    .coverflow-card {
+        width: 65%;
+        max-width: 260px;
+        /* Added max-width */
+    }
+
+    .coverflow-card.prev {
+        transform: translateX(-55%) scale(0.8) translateZ(-50px);
+        opacity: 0.3;
+        /* Hide more on small screens */
+    }
+
+    .coverflow-card.next {
+        transform: translateX(55%) scale(0.8) translateZ(-50px);
+        opacity: 0.3;
+    }
+
+    .video-nav-btn {
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        bottom: auto;
+        /* Vertically centered on mobile to prevent text overlap */
+        transform: translateY(-50%);
+    }
+
+    .video-nav-btn.prev {
+        left: 5px;
+    }
+
+    .video-nav-btn.next {
+        right: 5px;
+    }
+
+    .video-nav-btn:hover {
+        transform: translateY(-50%) scale(1.1);
     }
 }

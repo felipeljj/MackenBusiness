@@ -604,3 +604,35 @@
         gap: 0;
     }
 }
+
+@media (max-width: 480px) {
+    .nova-container {
+        padding: 0 20px;
+    }
+
+    .nova-hero {
+        padding: 100px 0 60px 0;
+        min-height: auto;
+    }
+
+    .nova-hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .nova-section {
+        padding: 60px 0;
+    }
+
+    .nova-section-header h2,
+    .nova-split-text h2 {
+        font-size: 2rem;
+    }
+
+    .nova-form-container {
+        padding: 30px 20px;
+    }
+
+    .nova-footer {
+        padding: 50px 0 0 0;
+    }
+}

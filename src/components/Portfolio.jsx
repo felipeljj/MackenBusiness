@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ProjectModal from './ProjectModal';
 import MarketingLP from './MarketingLP';
 import MackenSound from './MackenSound';
+import PizzaNY from './PizzaNY';
 import './Portfolio.css';
 
 const Portfolio = () => {
@@ -14,6 +15,7 @@ const Portfolio = () => {
         { title: 'Ricardo Franzen', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)
         { title: 'GrowSpace LP', desc: 'React & UI Design', imgSrc: '/images/marketing_thumb.png', category: 'dev', componentId: 'marketing' },
+        { title: 'Luigi\'s NY Slices', desc: 'React & UI Animations', imgSrc: '/images/pizza_thumb.png', category: 'dev', componentId: 'pizza' },
         { title: 'MackenSound', desc: 'React, State & Flexbox', imgSrc: '/images/mackensound_thumb.png', category: 'dev', componentId: 'spotify' },
     ];
 
@@ -85,6 +87,7 @@ const Portfolio = () => {
             <ProjectModal isOpen={activeProject !== null} onClose={() => setActiveProject(null)}>
                 {activeProject === 'marketing' && <MarketingLP />}
                 {activeProject === 'spotify' && <MackenSound />}
+                {activeProject === 'pizza' && <PizzaNY />}
             </ProjectModal>
         </section>
     );

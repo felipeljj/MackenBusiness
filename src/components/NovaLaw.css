@@ -1,0 +1,606 @@
+/* Styling for Nova Law Partners - Labor Law Firm */
+.nova-app {
+    --nova-navy: #0A192F;
+    --nova-navy-light: #172A45;
+    --nova-charcoal: #233554;
+    --nova-silver: #CCD6F6;
+    --nova-gold: #C5A47E;
+    --nova-white: #FFFFFF;
+    --nova-bg: #F8F9FA;
+    --nova-text: #333333;
+    --nova-text-light: #6c757d;
+    --nova-border: #EAEAEA;
+
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--nova-text);
+    background-color: var(--nova-white);
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.nova-app * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography Overrides */
+.nova-app h1,
+.nova-app h2,
+.nova-app h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--nova-navy);
+}
+
+.nova-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Header */
+.nova-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--nova-border);
+    transition: all 0.3s ease;
+}
+
+.nova-header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 5px 0;
+}
+
+.nova-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    transition: height 0.3s;
+}
+
+.nova-header.scrolled .nova-header-inner {
+    height: 70px;
+}
+
+.nova-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--nova-navy);
+}
+
+.nova-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.nova-brand-text strong {
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nova-brand-text span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--nova-gold);
+    font-weight: 600;
+}
+
+.nova-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nova-nav a {
+    color: var(--nova-navy);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.nova-nav a:hover {
+    color: var(--nova-gold);
+}
+
+.nova-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--nova-navy);
+    font-size: 1rem;
+    border-left: 1px solid var(--nova-border);
+    padding-left: 30px;
+}
+
+.nova-btn-primary {
+    background-color: var(--nova-navy);
+    color: var(--nova-white);
+    border: none;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nova-btn-primary:hover {
+    background-color: var(--nova-gold);
+}
+
+/* Hero Section */
+.nova-hero {
+    position: relative;
+    padding: 140px 0 100px 0;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+}
+
+.nova-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgba(10, 25, 47, 0.95) 0%, rgba(10, 25, 47, 0.6) 60%, rgba(10, 25, 47, 0.2) 100%), url('/images/law_hero.png');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--nova-navy);
+    /* Fallback */
+    z-index: 0;
+}
+
+.nova-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.nova-hero-text {
+    max-width: 650px;
+    color: var(--nova-white);
+}
+
+.nova-badge {
+    display: inline-block;
+    color: var(--nova-gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--nova-gold);
+    padding-left: 16px;
+}
+
+.nova-hero-text h1 {
+    font-size: 4rem;
+    color: var(--nova-white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.nova-hero-text p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    color: var(--nova-silver);
+}
+
+.nova-hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.nova-btn-solid {
+    background-color: var(--nova-gold);
+    color: var(--nova-navy);
+    border: none;
+    padding: 16px 32px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nova-btn-solid:hover {
+    background-color: #d1b491;
+    transform: translateY(-2px);
+}
+
+.nova-btn-outline {
+    background-color: transparent;
+    color: var(--nova-white);
+    border: 2px solid var(--nova-white);
+    padding: 14px 30px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nova-btn-outline:hover {
+    background-color: var(--nova-white);
+    color: var(--nova-navy);
+}
+
+/* Trust Strip */
+.nova-trust-strip {
+    background-color: var(--nova-navy);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+}
+
+.nova-trust-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nova-trust-item {
+    display: flex;
+    flex-direction: column;
+    color: var(--nova-white);
+}
+
+.nova-trust-item h5 {
+    color: var(--nova-gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.nova-trust-item span {
+    font-size: 1.25rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.nova-trust-logo {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px;
+}
+
+/* Sections */
+.nova-section {
+    padding: 100px 0;
+}
+
+.nova-bg-light {
+    background-color: var(--nova-bg);
+}
+
+.nova-section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.nova-section-header h2 {
+    font-size: 2.75rem;
+    margin-bottom: 20px;
+}
+
+.nova-section-header p {
+    font-size: 1.1rem;
+    color: var(--nova-text-light);
+    line-height: 1.7;
+}
+
+.nova-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.nova-card {
+    background-color: var(--nova-white);
+    padding: 40px;
+    border: 1px solid var(--nova-border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nova-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(10, 25, 47, 0.05);
+    border-color: transparent;
+}
+
+.nova-card svg {
+    color: var(--nova-gold);
+    margin-bottom: 24px;
+}
+
+.nova-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.nova-card p {
+    color: var(--nova-text-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.nova-link {
+    color: var(--nova-navy);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.nova-link:hover {
+    color: var(--nova-gold);
+}
+
+/* Split Section */
+.nova-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.nova-split-text h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.nova-split-text p {
+    color: var(--nova-text-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.nova-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nova-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--nova-navy);
+    font-size: 1.05rem;
+}
+
+.nova-benefits svg {
+    color: var(--nova-gold);
+}
+
+/* Form */
+.nova-form-container {
+    background-color: var(--nova-navy);
+    padding: 50px;
+    color: var(--nova-white);
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
+}
+
+.nova-form h3 {
+    font-size: 2rem;
+    color: var(--nova-white);
+    margin-bottom: 30px;
+}
+
+.nova-form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.nova-input-group {
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.nova-input-group input,
+.nova-input-group select,
+.nova-input-group textarea {
+    width: 100%;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--nova-white);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.nova-input-group select {
+    appearance: none;
+}
+
+.nova-input-group select option {
+    background-color: var(--nova-navy);
+    color: var(--nova-white);
+}
+
+.nova-input-group input:focus,
+.nova-input-group select:focus,
+.nova-input-group textarea:focus {
+    outline: none;
+    border-color: var(--nova-gold);
+}
+
+.nova-btn-solid.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+.nova-btn-solid.loading {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.nova-disclaimer {
+    margin-top: 16px;
+    font-size: 0.75rem;
+    color: var(--nova-silver);
+    opacity: 0.6;
+    text-align: center;
+}
+
+.nova-form-success {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.nova-success-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(197, 164, 126, 0.2);
+    border: 2px solid var(--nova-gold);
+    color: var(--nova-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.nova-success-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.nova-form-success h3 {
+    color: var(--nova-gold);
+    margin-bottom: 16px;
+}
+
+/* Footer */
+.nova-footer {
+    background-color: var(--nova-navy-light);
+    color: var(--nova-silver);
+    padding: 80px 0 0 0;
+    border-top: 5px solid var(--nova-gold);
+}
+
+.nova-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.nova-footer-brand .nova-brand {
+    color: var(--nova-white);
+    margin-bottom: 24px;
+}
+
+.nova-footer-brand p {
+    line-height: 1.7;
+    max-width: 400px;
+}
+
+.nova-footer h4 {
+    color: var(--nova-white);
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+}
+
+.nova-footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nova-footer-links a {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nova-footer-links a:hover {
+    color: var(--nova-gold);
+}
+
+.nova-footer-contact p {
+    margin-bottom: 16px;
+}
+
+.nova-footer-bottom {
+    background-color: var(--nova-navy);
+    padding: 24px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .nova-hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .nova-grid-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nova-split {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nova-nav,
+    .nova-phone {
+        display: none;
+    }
+
+    .nova-hero-actions {
+        flex-direction: column;
+    }
+
+    .nova-trust-inner,
+    .nova-footer-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .nova-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .nova-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

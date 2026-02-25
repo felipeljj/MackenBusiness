@@ -3,6 +3,9 @@ import ProjectModal from './ProjectModal';
 import MarketingLP from './MarketingLP';
 import MackenSound from './MackenSound';
 import PizzaNY from './PizzaNY';
+import CanadaMovers from './CanadaMovers';
+import AzureMiami from './AzureMiami';
+import NovaLaw from './NovaLaw';
 import './Portfolio.css';
 
 const Portfolio = () => {
@@ -14,6 +17,9 @@ const Portfolio = () => {
         { title: 'Ava yuergens', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/avayu.mp4', category: 'video' },
         { title: 'Ricardo Franzen', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)
+        { title: 'Nova Law Partners', desc: 'React, Corporate UI & Forms', imgSrc: '/images/law_hero.png', category: 'dev', componentId: 'nova' },
+        { title: 'Azure Miami Estates', desc: 'React, Luxury Design & Motion', imgSrc: '/images/azure_thumb.png', category: 'dev', componentId: 'azure' },
+        { title: 'TrueNorth Immigration', desc: 'React, Forms & CSS', imgSrc: '/images/canada_thumb.png', category: 'dev', componentId: 'canada' },
         { title: 'GrowSpace LP', desc: 'React & UI Design', imgSrc: '/images/marketing_thumb.png', category: 'dev', componentId: 'marketing' },
         { title: 'Luigi\'s NY Slices', desc: 'React & UI Animations', imgSrc: '/images/pizza_thumb.png', category: 'dev', componentId: 'pizza' },
         { title: 'MackenSound', desc: 'React, State & Flexbox', imgSrc: '/images/mackensound_thumb.png', category: 'dev', componentId: 'spotify' },
@@ -26,7 +32,7 @@ const Portfolio = () => {
             <div className="container">
                 <div className="portfolio-header reveal">
                     <h2 className="section-title">Selected Cases</h2>
-                    <p>A glimpse into what we've built for our partners.</p>
+                    <p>A glimpse into what we've built</p>
                 </div>
 
                 <div className="portfolio-tabs reveal delay-1">
@@ -48,7 +54,8 @@ const Portfolio = () => {
                     {filteredCases.map((c, index) => (
                         <article
                             key={index}
-                            className={`case-card hoverable reveal active`}
+                            className={`case-card hoverable reveal delay-${(index % 4) + 1}`}
+                            style={{ '--animation-order': index }}
                             onClick={() => {
                                 if (c.componentId) {
                                     setActiveProject(c.componentId);
@@ -85,6 +92,9 @@ const Portfolio = () => {
             </div>
 
             <ProjectModal isOpen={activeProject !== null} onClose={() => setActiveProject(null)}>
+                {activeProject === 'nova' && <NovaLaw />}
+                {activeProject === 'azure' && <AzureMiami />}
+                {activeProject === 'canada' && <CanadaMovers />}
                 {activeProject === 'marketing' && <MarketingLP />}
                 {activeProject === 'spotify' && <MackenSound />}
                 {activeProject === 'pizza' && <PizzaNY />}

@@ -1,0 +1,530 @@
+.canada-app {
+    --can-primary: #D80621;
+    /* Maple Red */
+    --can-primary-dark: #A50014;
+    --can-secondary: #0A192F;
+    /* Navy Blue */
+    --can-secondary-light: #112240;
+    --can-bg: #F8F9FA;
+    --can-text: #333333;
+    --can-text-light: #6c757d;
+    --can-border: #EAEAEA;
+
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--can-text);
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.canada-app * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.can-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+.can-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--can-border);
+}
+
+.can-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.can-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--can-secondary);
+    letter-spacing: -0.5px;
+}
+
+.can-logo.light {
+    color: white;
+}
+
+.can-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.can-nav a {
+    color: var(--can-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.can-nav a:hover {
+    color: var(--can-primary);
+}
+
+/* Buttons */
+.can-btn-primary {
+    background-color: var(--can-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.can-btn-primary:hover {
+    background-color: var(--can-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(216, 6, 33, 0.2);
+}
+
+.can-btn-primary.small {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.can-btn-primary.full-width {
+    width: 100%;
+}
+
+.can-btn-secondary {
+    background-color: transparent;
+    color: var(--can-secondary);
+    border: 2px solid var(--can-secondary);
+    border-radius: 4px;
+    padding: 12px 26px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.can-btn-secondary:hover {
+    background-color: var(--can-secondary);
+    color: white;
+}
+
+/* Hero Section */
+.can-hero {
+    position: relative;
+    padding: 120px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.can-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/canada_hero.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.can-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--can-secondary) 0%, rgba(10, 25, 47, 0.8) 50%, rgba(10, 25, 47, 0.2) 100%);
+}
+
+.can-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.can-hero-text {
+    max-width: 600px;
+    color: white;
+}
+
+.can-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.can-hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.can-hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.can-hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.can-hero-actions .can-btn-secondary {
+    border-color: white;
+    color: white;
+}
+
+.can-hero-actions .can-btn-secondary:hover {
+    background-color: white;
+    color: var(--can-secondary);
+}
+
+/* Features */
+.can-features {
+    padding: 100px 0;
+    background-color: var(--can-bg);
+}
+
+.can-section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+}
+
+.can-section-header h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--can-secondary);
+    margin-bottom: 16px;
+}
+
+.can-section-header p {
+    font-size: 1.1rem;
+    color: var(--can-text-light);
+    line-height: 1.6;
+}
+
+.can-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.can-card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--can-border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.can-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(10, 25, 47, 0.1);
+}
+
+.can-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(216, 6, 33, 0.1);
+    color: var(--can-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.can-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--can-secondary);
+    margin-bottom: 12px;
+}
+
+.can-card p {
+    color: var(--can-text-light);
+    line-height: 1.6;
+}
+
+/* Assessment Section */
+.can-assessment {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.can-assessment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.can-assessment-info h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--can-secondary);
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.can-assessment-info p {
+    font-size: 1.1rem;
+    color: var(--can-text-light);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.can-family-img {
+    margin-bottom: 32px;
+}
+
+.can-img-box {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    background-image: url('/images/canada_family.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.can-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.can-stat h4 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--can-primary);
+    margin-bottom: 4px;
+}
+
+.can-stat span {
+    font-size: 0.9rem;
+    color: var(--can-text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Form */
+.can-form-wrapper {
+    background: var(--can-secondary);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.2);
+}
+
+.can-form-card h3 {
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.can-input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.can-input-group label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.can-input-group input,
+.can-input-group select {
+    padding: 14px 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.can-input-group input:focus,
+.can-input-group select:focus {
+    border-color: var(--can-primary);
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+.can-input-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.can-input-group select option {
+    background-color: var(--can-secondary);
+    color: white;
+}
+
+.can-secure-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    margin-top: 16px;
+}
+
+.can-secure-text svg {
+    width: 14px;
+    height: 14px;
+}
+
+.can-btn-primary.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Success State */
+.can-success-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0;
+    color: white;
+}
+
+.success-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #10B981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-circle svg {
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+
+.can-success-state h4 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.can-success-state p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* Footer */
+.can-footer {
+    background-color: var(--can-secondary-light);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.can-footer .can-logo {
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+/* Animations */
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 0.8s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes revealUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .can-hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .can-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .can-assessment-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .can-nav {
+        display: none;
+    }
+
+    .can-hero-actions {
+        flex-direction: column;
+    }
+}

@@ -14,14 +14,15 @@ function App() {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.15
+      threshold: 0.2 // Trigger slightly later so the animation completes more visibly in frame
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('active');
         }
       });
     }, observerOptions);
@@ -40,9 +41,9 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Portfolio />
         <Contact />
+        <About />
       </main>
       <footer>
         <div className="container footer-content">

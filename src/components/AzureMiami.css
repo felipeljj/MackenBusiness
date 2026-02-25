@@ -1,0 +1,704 @@
+/* Variables for Luxury Aesthetic */
+.azure-app {
+    --az-gold: #D4AF37;
+    --az-gold-hover: #AA8C2C;
+    --az-dark: #0A0A0A;
+    --az-dark-soft: #141414;
+    --az-light: #F9F9F9;
+    --az-gray: #888888;
+    --az-border: rgba(255, 255, 255, 0.1);
+
+    font-family: 'Outfit', -apple-system, sans-serif;
+    color: var(--az-light);
+    background-color: var(--az-dark);
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.azure-app * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography refinements for luxury feel */
+.azure-app h1,
+.azure-app h2,
+.azure-app h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    /* Elegant serif for headings */
+    font-weight: 400;
+}
+
+.az-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* Header */
+.az-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-bottom: 1px solid transparent;
+}
+
+.az-header.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--az-border);
+    padding: 10px 0;
+}
+
+.az-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    transition: height 0.4s;
+}
+
+.az-header.scrolled .az-header-inner {
+    height: 70px;
+}
+
+.az-logo {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    color: var(--az-light);
+}
+
+.az-logo span {
+    font-size: 0.6rem;
+    color: var(--az-gold);
+    letter-spacing: 6px;
+    font-weight: 500;
+}
+
+.az-nav-desktop {
+    display: flex;
+    gap: 40px;
+}
+
+.az-nav-desktop a {
+    color: var(--az-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.az-nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--az-gold);
+    transition: width 0.3s;
+}
+
+.az-nav-desktop a:hover {
+    color: var(--az-gold);
+}
+
+.az-nav-desktop a:hover::after {
+    width: 100%;
+}
+
+.az-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.az-btn-outline {
+    background: transparent;
+    border: 1px solid var(--az-gold);
+    color: var(--az-gold);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.az-btn-outline:hover {
+    background: var(--az-gold);
+    color: var(--az-dark);
+}
+
+.az-menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--az-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.az-menu-btn:hover {
+    color: var(--az-gold);
+}
+
+/* Hero Section */
+.az-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.az-hero-bg {
+    position: absolute;
+    inset: -20px;
+    /* Slight overflow for parallax effect */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 10s linear;
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+.az-hero-bg.active {
+    opacity: 1;
+    transform: scale(1);
+    /* Slow zoom out effect */
+}
+
+.az-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.2) 40%, rgba(10, 10, 10, 0.8) 100%);
+    z-index: 1;
+}
+
+.az-hero-content {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-top: 80px;
+}
+
+.az-hero-text {
+    max-width: 800px;
+    transition: transform 0.1s ease-out;
+    /* For mouse movement parallax */
+}
+
+.az-subheading {
+    font-family: 'Outfit', sans-serif;
+    color: var(--az-gold);
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.az-heading {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.az-desc {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin-bottom: 50px;
+}
+
+.az-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.az-btn-solid {
+    background: var(--az-gold);
+    color: var(--az-dark);
+    border: none;
+    padding: 16px 32px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+}
+
+.az-btn-solid:hover {
+    background: var(--az-light);
+    transform: translateX(5px);
+}
+
+.az-btn-play {
+    background: transparent;
+    border: none;
+    color: var(--az-light);
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: color 0.3s;
+}
+
+.az-btn-play:hover {
+    color: var(--az-gold);
+}
+
+.play-icon-ring {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.az-btn-play:hover .play-icon-ring {
+    border-color: var(--az-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.az-indicators {
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.az-indicator {
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.az-indicator.active {
+    background: var(--az-gold);
+    width: 60px;
+}
+
+/* Common Section Styles */
+.az-section {
+    padding: 140px 0;
+    position: relative;
+}
+
+.az-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--az-gold);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+.az-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.az-link {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--az-gold);
+    color: var(--az-gold);
+    padding: 0 0 4px 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+    transition: all 0.3s;
+}
+
+.az-link:hover {
+    color: var(--az-light);
+    border-color: var(--az-light);
+    gap: 12px;
+}
+
+/* Vision Section */
+.az-vision {
+    background-color: var(--az-dark);
+}
+
+.az-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.az-vision-text p {
+    color: var(--az-gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.az-vision-image-wrapper {
+    position: relative;
+    height: 700px;
+}
+
+.az-vision-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+
+.az-floating-card {
+    position: absolute;
+    bottom: -30px;
+    left: -40px;
+    background: var(--az-dark-soft);
+    padding: 40px;
+    border-left: 2px solid var(--az-gold);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.az-floating-card h3 {
+    font-size: 2.5rem;
+    color: var(--az-light);
+    margin-bottom: 8px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.az-floating-card span {
+    color: var(--az-gray);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* Stats Section */
+.az-stats {
+    background-color: var(--az-dark-soft);
+    padding: 80px 0;
+    border-top: 1px solid var(--az-border);
+    border-bottom: 1px solid var(--az-border);
+}
+
+.az-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 40px;
+}
+
+.az-stat-item h3 {
+    font-size: 4rem;
+    color: var(--az-gold);
+    margin-bottom: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+}
+
+.az-stat-item span {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    color: var(--az-gray);
+}
+
+/* Interior Section */
+.az-interior {
+    background-color: var(--az-dark);
+}
+
+.az-interior-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.az-img-large {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
+.az-list {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.az-list h4 {
+    color: var(--az-light);
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+}
+
+.az-list p {
+    color: var(--az-gray);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.mt-4 {
+    margin-top: 50px;
+}
+
+/* Footer */
+.az-footer {
+    background-color: #050505;
+    padding: 100px 0 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.az-footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.az-logo.large {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.az-footer-brand p {
+    color: var(--az-gray);
+    line-height: 1.6;
+}
+
+.az-footer-links {
+    display: flex;
+    gap: 80px;
+}
+
+.link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link-group h4 {
+    color: var(--az-gold);
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.link-group a {
+    color: var(--az-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.link-group a:hover {
+    color: var(--az-light);
+}
+
+.az-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--az-gray);
+    font-size: 0.8rem;
+}
+
+.az-legal {
+    display: flex;
+    gap: 24px;
+}
+
+.az-legal a {
+    cursor: pointer;
+}
+
+.az-legal a:hover {
+    color: var(--az-light);
+}
+
+/* Video Modal */
+.az-video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.az-close-video {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.az-close-video:hover {
+    color: var(--az-gold);
+}
+
+.az-video-container {
+    width: 80%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+    background: black;
+    position: relative;
+}
+
+.az-mock-video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.az-mock-video img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.az-mock-video .play-overlay {
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.az-mock-video p {
+    position: absolute;
+    bottom: 40px;
+    z-index: 2;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .az-heading {
+        font-size: 4rem;
+    }
+
+    .az-vision-grid,
+    .az-interior-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .az-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .az-nav-desktop {
+        display: none;
+    }
+
+    .az-heading {
+        font-size: 3rem;
+    }
+
+    .az-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .az-footer-top {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .az-footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,112 @@
+.portfolio {
+    padding: 10rem 0;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tab-btn.active {
+    background: var(--text-main);
+    color: var(--bg-dark);
+    border-color: var(--text-main);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.case-card {
+    cursor: pointer;
+}
+
+.case-card:nth-child(even) {
+    margin-top: 5rem;
+}
+
+.case-image {
+    background-color: var(--bg-light);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.case-card:hover .img-placeholder {
+    transform: scale(1.05);
+    background-color: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.portfolio-media {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+    border-radius: 16px;
+    display: block;
+}
+
+.case-card:hover .portfolio-media {
+    transform: scale(1.05);
+}
+
+.case-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.case-card:hover .case-info h3 {
+    padding-left: 10px;
+}
+
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .case-card:nth-child(even) {
+        margin-top: 0;
+    }
+}

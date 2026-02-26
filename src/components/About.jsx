@@ -14,14 +14,14 @@ const About = () => {
                         <div className="founder-image">
                             <img src="/fabio.png" alt="Fabio Souza" />
                         </div>
-                        <h3>Fabio Souza</h3>
+                        <h3>Fabio S. Silva</h3>
                         <p>Founder & Head of Video Editing</p>
                     </div>
                     <div className="founder-card hoverable">
                         <div className="founder-image">
                             <img src="/felipe.png" alt="Felipe Latchuk" />
                         </div>
-                        <h3>Felipe Latchuk</h3>
+                        <h3>Felipe L. Martins</h3>
                         <p>Co-Founder & Head of DEV</p>
                     </div>
                 </div>

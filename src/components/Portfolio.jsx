@@ -26,8 +26,8 @@ const Portfolio = () => {
         // Exemplo de como adicionar um vídeo: passe o caminho do vídeo na propriedade videoSrc
         { title: 'Ava yuergens', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/avayu.mp4', category: 'video' },
         { title: 'Ricardo Franzen', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
-        { title: 'Vitória - Solé Mia', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/vitoria.mp4', category: 'video' },
-        { title: 'Dr. Elliot Dinetz', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/elliot.mp4', category: 'video' },
+        //{ title: 'Vitória - Solé Mia', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/vitoria.mp4', category: 'video' },
+        //{ title: 'Dr. Elliot Dinetz', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/elliot.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)
         { title: 'Nova Law Partners', desc: 'React, Corporate UI & Forms', imgSrc: '/images/law_hero.png', category: 'dev', componentId: 'nova' },
         { title: 'Azure Miami Estates', desc: 'React, Luxury Design & Motion', imgSrc: '/images/azure_thumb.png', category: 'dev', componentId: 'azure' },

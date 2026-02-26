@@ -60,10 +60,15 @@ const StatItem = ({ end, label, suffix = "" }) => {
 const Stats = () => {
     return (
         <section className="stats-section">
-            <div className="container stats-container">
-                <StatItem end={100} label="Clients Worldwide" suffix="+" />
-                <div className="stat-divider"></div>
-                <StatItem end={1200} label="Videos Delivered" suffix="+" />
+            <div className="container">
+                <div className="stats-header reveal" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                    <h2 className="section-title">Quality born from delivery</h2>
+                </div>
+                <div className="stats-container">
+                    <StatItem end={100} label="Clients Worldwide" suffix="+" />
+                    <div className="stat-divider"></div>
+                    <StatItem end={1200} label="Videos Delivered" suffix="+" />
+                </div>
             </div>
         </section>
     );

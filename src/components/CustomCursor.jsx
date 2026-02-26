@@ -24,15 +24,19 @@ const CustomCursor = () => {
             }
         };
 
+        let isHovering = false;
+
         const addHoverEffect = () => {
             document.querySelectorAll('.hoverable, a, button').forEach(el => {
                 el.addEventListener('mouseenter', () => {
+                    isHovering = true;
                     if (outlineRef.current) {
                         outlineRef.current.style.transform = 'translate(-50%, -50%) scale(1.5)';
                         outlineRef.current.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                     }
                 });
                 el.addEventListener('mouseleave', () => {
+                    isHovering = false;
                     if (outlineRef.current) {
                         outlineRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
                         outlineRef.current.style.backgroundColor = 'transparent';
@@ -41,13 +45,33 @@ const CustomCursor = () => {
             });
         };
 
+        const onMouseDown = () => {
+            if (outlineRef.current && !isHovering) {
+                outlineRef.current.style.transform = 'translate(-50%, -50%) scale(1.4)';
+            } else if (outlineRef.current && isHovering) {
+                outlineRef.current.style.transform = 'translate(-50%, -50%) scale(1.9)'; // 1.5 + 40% roughly
+            }
+        };
+
+        const onMouseUp = () => {
+            if (outlineRef.current && !isHovering) {
+                outlineRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
+            } else if (outlineRef.current && isHovering) {
+                outlineRef.current.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            }
+        };
+
         window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mousedown', onMouseDown);
+        window.addEventListener('mouseup', onMouseUp);
 
         // Add hover effect after render
         setTimeout(addHoverEffect, 500);
 
         return () => {
             window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mousedown', onMouseDown);
+            window.removeEventListener('mouseup', onMouseUp);
         };
     }, []);
 

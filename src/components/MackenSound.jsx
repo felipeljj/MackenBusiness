@@ -184,19 +184,19 @@ const MackenSound = () => {
     };
 
     const jazzClassics = [
-        { title: "Midnight Serenade", artist: "Miles Davis Quintet", album: "Kind of Blue", duration: "3:42", file: "/audio/track1.mp3" },
-        { title: "Autumn Leaves", artist: "Chet Baker", album: "In Paris", duration: "2:15", file: "/audio/track2.mp3" },
-        { title: "Take Five", artist: "Dave Brubeck", album: "Time Out", duration: "4:05", file: "/audio/track3.mp3" },
-        { title: "My Favorite Things", artist: "John Coltrane", album: "Coltrane Jazz", duration: "2:50", file: "/audio/track4.mp3" },
-        { title: "Blue Train", artist: "John Coltrane", album: "Blue Train", duration: "5:12", file: "/audio/track5.mp3" }
+        { title: "Midnight Serenade", artist: "Miles Davis Quintet", album: "Kind of Blue", duration: "3:42", file: "/audio/track0.mp3" },
+        { title: "Autumn Leaves", artist: "Chet Baker", album: "In Paris", duration: "2:15", file: "/audio/track1.mp3" },
+        { title: "Take Five", artist: "Dave Brubeck", album: "Time Out", duration: "4:05", file: "/audio/track2.mp3" },
+        { title: "My Favorite Things", artist: "John Coltrane", album: "Coltrane Jazz", duration: "2:50", file: "/audio/track3.mp3" },
+        { title: "Blue Train", artist: "John Coltrane", album: "Blue Train", duration: "5:12", file: "/audio/track4.mp3" }
     ];
 
     const modernJazz = [
-        { title: "Lingus", artist: "Snarky Puppy", album: "We Like It Here", duration: "6:30", file: "/audio/track6.mp3" },
-        { title: "The Epic", artist: "Kamasi Washington", album: "The Epic", duration: "4:45", file: "/audio/track7.mp3" },
-        { title: "Gotta Dance", artist: "Hiromi", album: "Spark", duration: "3:50", file: "/audio/track8.mp3" },
-        { title: "Valerie", artist: "Amy Winehouse", album: "Back to Black", duration: "3:15", file: "/audio/track9.mp3" },
-        { title: "Liquid Spirit", artist: "Gregory Porter", album: "Liquid Spirit", duration: "4:20", file: "/audio/track10.mp3" }
+        { title: "Lingus", artist: "Snarky Puppy", album: "We Like It Here", duration: "6:30", file: "/audio/track5.mp3" },
+        { title: "The Epic", artist: "Kamasi Washington", album: "The Epic", duration: "4:45", file: "/audio/track6.mp3" },
+        { title: "Gotta Dance", artist: "Hiromi", album: "Spark", duration: "3:50", file: "/audio/track7.mp3" },
+        { title: "Valerie", artist: "Amy Winehouse", album: "Back to Black", duration: "3:15", file: "/audio/track8.mp3" },
+        { title: "Liquid Spirit", artist: "Gregory Porter", album: "Liquid Spirit", duration: "4:20", file: "/audio/track9.mp3" }
     ];
 
     const playlists = [

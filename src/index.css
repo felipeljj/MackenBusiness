@@ -187,3 +187,18 @@ a {
     cursor: auto;
   }
 }
+
+/* Film Grain Overlay - Optimized */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png') repeat 0 0;
+  background-repeat: repeat;
+  opacity: .04;
+  visibility: visible;
+  pointer-events: none;
+  z-index: 9999;
+}

@@ -158,7 +158,9 @@ const Portfolio = () => {
                                         <div className="coverflow-video-container">
                                             <video
                                                 ref={el => videoRefs.current[index] = el}
-                                                src={c.videoSrc}
+                                                // Only load the video if it's the active one, or immediately adjacent
+                                                src={Math.abs(offset) <= 1 ? c.videoSrc : ""}
+                                                preload={Math.abs(offset) <= 1 ? "auto" : "none"}
                                                 loop
                                                 muted={!isActive || isMuted} // force mute if inactive, otherwise respect isMuted
                                                 playsInline

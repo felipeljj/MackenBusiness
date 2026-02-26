@@ -175,48 +175,16 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    {/* Right Side: Form */}
+                    {/* Right Side: Instagram Link */}
                     <div className="contact-form-block reveal delay-2">
-                        <div className="form-glass-panel">
+                        <div className="form-glass-panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: '300px', textAlign: 'center' }}>
                             <h3>Let's talk business</h3>
-                            <p>Send us a brief message and we'll reply directly via WhatsApp.</p>
+                            <p style={{ marginBottom: '2rem' }}>Send us a direct message on Instagram to get started.</p>
 
-                            <form onSubmit={handleWhatsAppSubmit} className="contact-form">
-                                <div className="input-group">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Your Name / Agency"
-                                        required
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="input-group">
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Email Address"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="input-group">
-                                    <textarea
-                                        name="message"
-                                        placeholder="How can we help scale your agency?"
-                                        rows="4"
-                                        required
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                    ></textarea>
-                                </div>
-
-                                <button type="submit" className="btn btn-primary btn-full hoverable">
-                                    <span style={{ marginRight: '8px' }}>Start Now</span>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: '20px', height: '20px' }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                </button>
-                            </form>
+                            <a href="https://www.instagram.com/mackenagency/" target="_blank" rel="noopener noreferrer" className="btn btn-primary hoverable" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '1rem 2rem', textDecoration: 'none' }}>
+                                <span>Message on Instagram</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            </a>
                         </div>
                     </div>
 

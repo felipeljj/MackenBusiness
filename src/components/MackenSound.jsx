@@ -184,7 +184,7 @@ const MackenSound = () => {
     };
 
     const jazzClassics = [
-        { title: "Midnight Serenade", artist: "Miles Davis Quintet", album: "Kind of Blue", duration: "3:42", file: "/audio/track0.mp3" },
+        { title: "Midnight Serenade", artist: "Miles Davis Quintet", album: "Kind of Blue", duration: "3:42", file: "/audio/track.mp3" },
         { title: "Autumn Leaves", artist: "Chet Baker", album: "In Paris", duration: "2:15", file: "/audio/track1.mp3" },
         { title: "Take Five", artist: "Dave Brubeck", album: "Time Out", duration: "4:05", file: "/audio/track2.mp3" },
         { title: "My Favorite Things", artist: "John Coltrane", album: "Coltrane Jazz", duration: "2:50", file: "/audio/track3.mp3" },

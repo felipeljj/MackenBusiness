@@ -296,15 +296,6 @@
     font-size: 1.2rem;
     margin-bottom: 0.25rem;
     transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.flag-icon {
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    display: inline-block;
 }
 
 .case-card:hover .case-info h3 {

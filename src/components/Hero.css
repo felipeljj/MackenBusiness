@@ -52,9 +52,8 @@
 }
 
 .text-outline {
-    color: var(--bg-dark);
+    color: transparent;
     -webkit-text-stroke: 1px var(--text-main);
-    paint-order: stroke fill;
     display: block;
 }
 

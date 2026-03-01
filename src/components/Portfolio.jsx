@@ -8,19 +8,6 @@ import AzureMiami from './AzureMiami';
 import NovaLaw from './NovaLaw';
 import './Portfolio.css';
 
-const FlagIcon = ({ country }) => {
-    if (!country) return null;
-    const code = country.toLowerCase();
-    return (
-        <img
-            src={`https://flagcdn.com/${code}.svg`}
-            alt={`${country} flag`}
-            className="flag-icon"
-            style={{ width: '24px', height: '18px', objectFit: 'cover' }}
-        />
-    );
-};
-
 const Portfolio = () => {
     const [activeTab, setActiveTab] = useState('video');
     const [activeProject, setActiveProject] = useState(null);
@@ -37,8 +24,8 @@ const Portfolio = () => {
 
     const cases = [
         // Exemplo de como adicionar um vídeo: passe o caminho do vídeo na propriedade videoSrc
-        { title: 'Mansur Sahid ', flag: 'BR', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/sahid.mp4', category: 'video' },
-        { title: 'Ricardo Franzen ', flag: 'CA', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
+        { title: 'Mansur Sahid', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/sahid.mp4', category: 'video' },
+        { title: 'Ricardo Franzen', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
         //{ title: 'Vitória - Solé Mia', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/vitoria.mp4', category: 'video' },
         //{ title: 'Dr. Elliot Dinetz', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/elliot.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)
@@ -132,7 +119,7 @@ const Portfolio = () => {
                                     )}
                                 </div>
                                 <div className="case-info">
-                                    <h3>{c.title}{c.flag && <FlagIcon country={c.flag} />}</h3>
+                                    <h3>{c.title}</h3>
                                     <p>{c.desc}</p>
                                 </div>
                             </article>
@@ -197,7 +184,7 @@ const Portfolio = () => {
                                             )}
                                         </div>
                                         <div className={`case-info ${isActive ? 'visible' : 'hidden'}`}>
-                                            <h3>{c.title}{c.flag && <FlagIcon country={c.flag} />}</h3>
+                                            <h3>{c.title}</h3>
                                             <p>{c.desc}</p>
                                         </div>
                                     </article>

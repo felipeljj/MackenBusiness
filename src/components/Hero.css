@@ -53,7 +53,15 @@
 
 .text-outline {
     color: var(--bg-dark);
-    -webkit-text-stroke: 1px var(--text-main);
+    text-shadow:
+        -1px -1px 0 #FAFAFA,
+        0px -1px 0 #FAFAFA,
+        1px -1px 0 #FAFAFA,
+        -1px 0px 0 #FAFAFA,
+        1px 0px 0 #FAFAFA,
+        -1px 1px 0 #FAFAFA,
+        0px 1px 0 #FAFAFA,
+        1px 1px 0 #FAFAFA;
     display: block;
 }
 

@@ -72,7 +72,7 @@ const CanadaMovers = () => {
                     <nav className="can-nav">
                         <a href="#services">Services</a>
                         <a href="#about">About Us</a>
-                        <a href="#testimonials">Success Stories</a>
+
                         <button className="can-btn-primary small" onClick={() => document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' })}>
                             Free Assessment
                         </button>
@@ -131,29 +131,6 @@ const CanadaMovers = () => {
                     </div>
                 </section>
 
-                {/* Testimonials Section */}
-                <section className="can-testimonials" id="testimonials" style={{ padding: '80px 0', backgroundColor: '#f0f4f8' }}>
-                    <div className="can-container">
-                        <div className="can-section-header reveal">
-                            <h2>Success Stories</h2>
-                            <p>Hear from people who made their Canadian dream a reality with us.</p>
-                        </div>
-                        <div className="can-grid-3">
-                            <div className="can-card reveal delay-1">
-                                <p style={{ fontStyle: 'italic', marginBottom: '16px' }}>"TrueNorth made my Express Entry process seamless. I received my ITA in just 3 months!"</p>
-                                <h4>- Maria S., Brazil</h4>
-                            </div>
-                            <div className="can-card reveal delay-2">
-                                <p style={{ fontStyle: 'italic', marginBottom: '16px' }}>"Their attention to detail with my study permit was outstanding. I am now studying in Toronto!"</p>
-                                <h4>- Raj P., India</h4>
-                            </div>
-                            <div className="can-card reveal delay-3">
-                                <p style={{ fontStyle: 'italic', marginBottom: '16px' }}>"Thanks to their team, my family sponsorship was approved without any delays."</p>
-                                <h4>- Elena G., Mexico</h4>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Social Proof & Form Section */}
                 <section className="can-assessment" id="assessment">

@@ -119,7 +119,7 @@ const Contact = () => {
 
                     {/* Left Side: Quality / Why Us */}
                     <div className="contact-info-block reveal">
-                        <h2 className="section-title">Scale Your Agency.</h2>
+                        <h2 className="section-title">Scale Your Business.</h2>
                         <p className="contact-subtitle">
                             We operate as your elite white-label design, development, and video post-production partner. High-end delivery, zero friction.
                         </p>

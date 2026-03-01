@@ -52,7 +52,7 @@
 }
 
 .text-outline {
-    color: transparent;
+    color: var(--bg-dark);
     -webkit-text-stroke: 1px var(--text-main);
     display: block;
 }

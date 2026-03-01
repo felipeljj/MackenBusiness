@@ -8,6 +8,32 @@ import AzureMiami from './AzureMiami';
 import NovaLaw from './NovaLaw';
 import './Portfolio.css';
 
+const FlagIcon = ({ country }) => {
+    if (country === 'BR') {
+        return (
+            <svg className="flag-icon" viewBox="0 0 640 480" width="20" height="15" xmlns="http://www.w3.org/2000/svg">
+                <g fillRule="evenodd">
+                    <path fill="#009c3b" d="M0 0h640v480H0z" />
+                    <path fill="#ffdf00" d="M320 48L48 240l272 192 272-192z" />
+                    <circle fill="#002776" cx="320" cy="240" r="84" />
+                    <path fill="#fff" d="M236.4 246.3c15.2 6.7 33.2 10.9 52 12.3-1.4-1.3-2.8-2.6-4.1-4-36.9-38-66-83-84.3-131l-3 1.1c17.5 45.4 45.1 87.7 80 124l-0.6-2.4c-15.1-4-29.4-10-42.3-17.6l2.3 17.6z" />
+                </g>
+            </svg>
+        );
+    }
+    if (country === 'CA') {
+        return (
+            <svg className="flag-icon" viewBox="0 0 640 480" width="20" height="15" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ff0000" d="M0 0h640v480H0z" />
+                <path fill="#fff" d="M160 0h320v480H160z" />
+                <path fill="#ff0000" d="M320 74.3l11.4 34.6 36.1-8.5-8.5 36.1 34.6 11.4-34.6 11.4 8.5 36.1-36.1-8.5-11.4 34.6-11.4-34.6-36.1 8.5 8.5-36.1-34.6-11.4 34.6-11.4-8.5-36.1 36.1 8.5z" />
+                <path fill="#ff0000" d="M320 236v185h-10V236h10z" />
+            </svg>
+        );
+    }
+    return null;
+};
+
 const Portfolio = () => {
     const [activeTab, setActiveTab] = useState('video');
     const [activeProject, setActiveProject] = useState(null);
@@ -24,8 +50,8 @@ const Portfolio = () => {
 
     const cases = [
         // Exemplo de como adicionar um vídeo: passe o caminho do vídeo na propriedade videoSrc
-        { title: 'Ava yuergens', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/avayu.mp4', category: 'video' },
-        { title: 'Ricardo Franzen', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
+        { title: 'Mansur Sahid ', flag: 'BR', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/sahid.mp4', category: 'video' },
+        { title: 'Ricardo Franzen ', flag: 'CA', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
         //{ title: 'Vitória - Solé Mia', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/vitoria.mp4', category: 'video' },
         //{ title: 'Dr. Elliot Dinetz', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/elliot.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)
@@ -119,7 +145,7 @@ const Portfolio = () => {
                                     )}
                                 </div>
                                 <div className="case-info">
-                                    <h3>{c.title}</h3>
+                                    <h3>{c.title}{c.flag && <FlagIcon country={c.flag} />}</h3>
                                     <p>{c.desc}</p>
                                 </div>
                             </article>
@@ -184,7 +210,7 @@ const Portfolio = () => {
                                             )}
                                         </div>
                                         <div className={`case-info ${isActive ? 'visible' : 'hidden'}`}>
-                                            <h3>{c.title}</h3>
+                                            <h3>{c.title}{c.flag && <FlagIcon country={c.flag} />}</h3>
                                             <p>{c.desc}</p>
                                         </div>
                                     </article>

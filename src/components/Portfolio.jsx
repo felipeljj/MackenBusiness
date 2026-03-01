@@ -9,29 +9,16 @@ import NovaLaw from './NovaLaw';
 import './Portfolio.css';
 
 const FlagIcon = ({ country }) => {
-    if (country === 'BR') {
-        return (
-            <svg className="flag-icon" viewBox="0 0 640 480" width="20" height="15" xmlns="http://www.w3.org/2000/svg">
-                <g fillRule="evenodd">
-                    <path fill="#009c3b" d="M0 0h640v480H0z" />
-                    <path fill="#ffdf00" d="M320 48L48 240l272 192 272-192z" />
-                    <circle fill="#002776" cx="320" cy="240" r="84" />
-                    <path fill="#fff" d="M236.4 246.3c15.2 6.7 33.2 10.9 52 12.3-1.4-1.3-2.8-2.6-4.1-4-36.9-38-66-83-84.3-131l-3 1.1c17.5 45.4 45.1 87.7 80 124l-0.6-2.4c-15.1-4-29.4-10-42.3-17.6l2.3 17.6z" />
-                </g>
-            </svg>
-        );
-    }
-    if (country === 'CA') {
-        return (
-            <svg className="flag-icon" viewBox="0 0 640 480" width="20" height="15" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ff0000" d="M0 0h640v480H0z" />
-                <path fill="#fff" d="M160 0h320v480H160z" />
-                <path fill="#ff0000" d="M320 74.3l11.4 34.6 36.1-8.5-8.5 36.1 34.6 11.4-34.6 11.4 8.5 36.1-36.1-8.5-11.4 34.6-11.4-34.6-36.1 8.5 8.5-36.1-34.6-11.4 34.6-11.4-8.5-36.1 36.1 8.5z" />
-                <path fill="#ff0000" d="M320 236v185h-10V236h10z" />
-            </svg>
-        );
-    }
-    return null;
+    if (!country) return null;
+    const code = country.toLowerCase();
+    return (
+        <img
+            src={`https://flagcdn.com/${code}.svg`}
+            alt={`${country} flag`}
+            className="flag-icon"
+            style={{ width: '24px', height: '18px', objectFit: 'cover' }}
+        />
+    );
 };
 
 const Portfolio = () => {

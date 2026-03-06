@@ -68,6 +68,10 @@ const Stats = () => {
                     <StatItem end={100} label="Clients Worldwide" suffix="+" />
                     <div className="stat-divider"></div>
                     <StatItem end={1200} label="Videos Delivered" suffix="+" />
+                    <div className="stat-divider"></div>
+                    <StatItem end={5} label="Sites Delivered" suffix="+" />
+                    <div className="stat-divider"></div>
+                    <StatItem end={2} label="Apps Delivered" suffix="+" />
                 </div>
             </div>
         </section>

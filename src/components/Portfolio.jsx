@@ -123,7 +123,7 @@ const Portfolio = () => {
                                 <div className="case-info">
                                     <h3>
                                         {c.title}
-                                        {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ marginLeft: '10px', width: '1em', height: '1em', verticalAlign: '-0.15em', borderRadius: '2px', objectFit: 'cover' }} title={c.countryCode} />}
+                                        {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ marginLeft: '10px', width: '1.6em', height: '1.2em', verticalAlign: '-0.15em', borderRadius: '3px', objectFit: 'cover' }} title={c.countryCode} />}
                                     </h3>
                                     <p>{c.desc}</p>
                                 </div>
@@ -191,7 +191,7 @@ const Portfolio = () => {
                                         <div className={`case-info ${isActive ? 'visible' : 'hidden'}`}>
                                             <h3>
                                                 {c.title}
-                                                {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ marginLeft: '10px', width: '1em', height: '1em', verticalAlign: '-0.15em', borderRadius: '2px', objectFit: 'cover' }} title={c.countryCode} />}
+                                                {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ marginLeft: '10px', width: '1.6em', height: '1.2em', verticalAlign: '-0.15em', borderRadius: '3px', objectFit: 'cover' }} title={c.countryCode} />}
                                             </h3>
                                             <p>{c.desc}</p>
                                         </div>

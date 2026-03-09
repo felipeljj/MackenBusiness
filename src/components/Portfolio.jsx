@@ -27,7 +27,7 @@ const Portfolio = () => {
         // Exemplo de como adicionar um vídeo: passe o caminho do vídeo na propriedade videoSrc
         { title: 'Alex Cooper', countryCode: 'US', desc: 'Edit by Macken | Original content: Call Her Daddy', videoSrc: '/videos/alex.mp4', category: 'video' },
         { title: 'Juliana Pacheco', countryCode: 'BR', desc: 'Pacheco Lima Advogados', videoSrc: '/videos/juliana.mp4', category: 'video' },
-        { title: 'Mansur Sahid', countryCode: 'BR', desc: 'Sahid Advogados', videoSrc: '/videos/sahid.mp4', category: 'video' },
+        { title: 'Mansur Sahid', countryCode: 'BR', desc: 'Sahid Advogados', videoSrc: '/videos/mansur.mp4', category: 'video' },
         //{ title: 'Vitória - Solé Mia', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/vitoria.mp4', category: 'video' },
         //{ title: 'Dr. Elliot Dinetz', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/elliot.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)

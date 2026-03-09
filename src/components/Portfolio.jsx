@@ -25,9 +25,9 @@ const Portfolio = () => {
 
     const cases = [
         // Exemplo de como adicionar um vídeo: passe o caminho do vídeo na propriedade videoSrc
-        { title: 'Mansur Sahid', countryCode: 'BR', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/sahid.mp4', category: 'video' },
-        { title: 'Ricardo Franzen', countryCode: 'CA', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/ricardo.mp4', category: 'video' },
-        { title: 'Juliana Pacheco', countryCode: 'BR', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/juliana.mp4', category: 'video' },
+        { title: 'Alex Cooper', countryCode: 'US', desc: 'Edit by Macken | Original content: Call Her Daddy', videoSrc: '/videos/alex.mp4', category: 'video' },
+        { title: 'Juliana Pacheco', countryCode: 'BR', desc: 'Pacheco Lima Advogados', videoSrc: '/videos/juliana.mp4', category: 'video' },
+        { title: 'Mansur Sahid', countryCode: 'BR', desc: 'Sahid Advogados', videoSrc: '/videos/sahid.mp4', category: 'video' },
         //{ title: 'Vitória - Solé Mia', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/vitoria.mp4', category: 'video' },
         //{ title: 'Dr. Elliot Dinetz', desc: 'Video Editing & Motion Graphics', videoSrc: '/videos/elliot.mp4', category: 'video' },
         // Exemplo de como adicionar uma imagem: passe o caminho na propriedade imgSrc (senão, use imgText)
@@ -121,9 +121,9 @@ const Portfolio = () => {
                                     )}
                                 </div>
                                 <div className="case-info">
-                                    <h3>
+                                    <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                                         {c.title}
-                                        {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ marginLeft: '10px', width: '1.6em', height: '1.2em', verticalAlign: '-0.15em', borderRadius: '3px', objectFit: 'cover' }} title={c.countryCode} />}
+                                        {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ width: '1.4em', height: '1.05em', borderRadius: '3px', objectFit: 'cover', flexShrink: 0 }} title={c.countryCode} />}
                                     </h3>
                                     <p>{c.desc}</p>
                                 </div>
@@ -189,9 +189,9 @@ const Portfolio = () => {
                                             )}
                                         </div>
                                         <div className={`case-info ${isActive ? 'visible' : 'hidden'}`}>
-                                            <h3>
+                                            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                                                 {c.title}
-                                                {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ marginLeft: '10px', width: '1.6em', height: '1.2em', verticalAlign: '-0.15em', borderRadius: '3px', objectFit: 'cover' }} title={c.countryCode} />}
+                                                {c.countryCode && <ReactCountryFlag countryCode={c.countryCode} svg style={{ width: '1.4em', height: '1.05em', borderRadius: '3px', objectFit: 'cover', flexShrink: 0 }} title={c.countryCode} />}
                                             </h3>
                                             <p>{c.desc}</p>
                                         </div>

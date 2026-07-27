@@ -22,8 +22,8 @@ Traduzir para português brasileiro todo o conteúdo textual renderizado na pág
 ### Hero
 
 - `WE ARE MACKEN` permanece sem alteração.
-- `The premium B2B white-label business.` → `A solução premium B2B white-label.`
-- `Empowering your brand with exceptional digital craftsmanship.` → `Potencializando sua marca com excelência em soluções digitais.`
+- `The premium B2B white-label business.` → `Soluções para agências e empresas.`
+- `Empowering your brand with exceptional digital craftsmanship.` → `Potencializamos seu negócio digital.`
 - `Partner With Us` → `Seja nosso parceiro`
 
 ### Métricas

@@ -62,8 +62,8 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    A solução premium B2B white-label. <br />
-                    Potencializando sua marca com excelência em soluções digitais.
+                    Soluções para agências e empresas. <br />
+                    Potencializamos seu negócio digital.
                 </motion.p>
                 <div className="hero-cta reveal delay-3">
                     <a href="#contact" className="btn btn-secondary">Seja nosso parceiro</a>

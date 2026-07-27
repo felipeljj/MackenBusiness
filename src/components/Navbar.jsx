@@ -17,10 +17,10 @@ const Navbar = () => {
         <nav className={`navbar hidden-onload ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">
                 <a href="#home" className="logo hoverable">
-                    <img src="/macken-logo.png" alt="MACKEN Logo" className="logo-svg" />
+                    <img src="/macken-logo.png" alt="Logo MACKEN" className="logo-svg" />
                 </a>
                 <div className="nav-links">
-                    <a href="#contact" className="nav-link btn-contact hoverable">Let's Talk</a>
+                    <a href="#contact" className="nav-link btn-contact hoverable">Vamos conversar</a>
                 </div>
             </div>
         </nav>

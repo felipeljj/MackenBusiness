@@ -62,16 +62,16 @@ const Stats = () => {
         <section className="stats-section">
             <div className="container">
                 <div className="stats-header reveal" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h2 className="section-title">Quality born from delivery</h2>
+                    <h2 className="section-title">Qualidade construída em cada entrega</h2>
                 </div>
                 <div className="stats-container">
-                    <StatItem end={100} label="Clients Worldwide" suffix="+" />
+                    <StatItem end={100} label="Clientes no mundo todo" suffix="+" />
                     <div className="stat-divider"></div>
-                    <StatItem end={1200} label="Videos Delivered" suffix="+" />
+                    <StatItem end={1200} label="Vídeos entregues" suffix="+" />
                     <div className="stat-divider"></div>
-                    <StatItem end={5} label="Sites Delivered" suffix="+" />
+                    <StatItem end={5} label="Sites entregues" suffix="+" />
                     <div className="stat-divider"></div>
-                    <StatItem end={2} label="Apps Delivered" suffix="+" />
+                    <StatItem end={2} label="Apps entregues" suffix="+" />
                 </div>
             </div>
         </section>

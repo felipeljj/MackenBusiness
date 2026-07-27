@@ -119,9 +119,9 @@ const Contact = () => {
 
                     {/* Left Side: Quality / Why Us */}
                     <div className="contact-info-block reveal">
-                        <h2 className="section-title">Scale Your Business.</h2>
+                        <h2 className="section-title">Escale o seu negócio.</h2>
                         <p className="contact-subtitle">
-                            We operate as your elite white-label design, development, and video post-production partner. High-end delivery, zero friction.
+                            Atuamos como seu parceiro premium white-label em design, desenvolvimento e pós-produção de vídeo. Entregas de alto nível, sem atrito.
                         </p>
 
                         <div className="quality-grid">
@@ -129,48 +129,48 @@ const Contact = () => {
                                 <div className="q-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                                 </div>
-                                <h4>Premium Quality</h4>
-                                <p>Uncompromising aesthetic standards across code, UI design, and motion.</p>
+                                <h4>Qualidade premium</h4>
+                                <p>Padrões estéticos sem concessões em código, design de interfaces e motion.</p>
                             </div>
 
                             <div className="quality-card hoverable">
                                 <div className="q-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                                 </div>
-                                <h4>High-End Video</h4>
-                                <p>Cinematic editing, dynamic motion graphics, and top-tier post-production.</p>
+                                <h4>Vídeos de alto nível</h4>
+                                <p>Edição cinematográfica, motion graphics dinâmicos e pós-produção de alto nível.</p>
                             </div>
 
                             <div className="quality-card hoverable">
                                 <div className="q-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                                 </div>
-                                <h4>Rapid Turnaround</h4>
-                                <p>Agile deployment systems built for modern agency speeds.</p>
+                                <h4>Entrega ágil</h4>
+                                <p>Sistemas ágeis de produção e entrega, feitos para o ritmo das agências modernas.</p>
                             </div>
 
                             <div className="quality-card hoverable">
                                 <div className="q-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                                 </div>
-                                <h4>Strict NDA</h4>
-                                <p>100% white-label. We remain invisible to your end-clients.</p>
+                                <h4>NDA rigoroso</h4>
+                                <p>100% white-label. Permanecemos invisíveis para seus clientes finais.</p>
                             </div>
 
                             <div className="quality-card hoverable">
                                 <div className="q-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                                 </div>
-                                <h4>Scalable Tech</h4>
-                                <p>React, Next.js, and modern front-end stacks built for massive impact.</p>
+                                <h4>Tecnologia escalável</h4>
+                                <p>React, Next.js e stacks modernas de front-end, construídas para gerar grande impacto.</p>
                             </div>
 
                             <div className="quality-card hoverable">
                                 <div className="q-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                                 </div>
-                                <h4>UX/UI Design</h4>
-                                <p>Crafting intuitive and immersive user journeys built to convert.</p>
+                                <h4>Design UX/UI</h4>
+                                <p>Criamos jornadas de usuário intuitivas e imersivas, pensadas para converter.</p>
                             </div>
                         </div>
                     </div>
@@ -178,11 +178,11 @@ const Contact = () => {
                     {/* Right Side: Instagram Link */}
                     <div className="contact-form-block reveal delay-2">
                         <div className="form-glass-panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: '300px', textAlign: 'center' }}>
-                            <h3>Let's talk business</h3>
-                            <p style={{ marginBottom: '2rem' }}>Send us a direct message on Instagram to get started.</p>
+                            <h3>Vamos falar de negócios</h3>
+                            <p style={{ marginBottom: '2rem' }}>Envie uma mensagem direta no Instagram para começarmos.</p>
 
                             <a href="https://www.instagram.com/mackenbusiness/" target="_blank" rel="noopener noreferrer" className="btn btn-primary hoverable" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '1rem 2rem', textDecoration: 'none' }}>
-                                <span>Message on Instagram</span>
+                                <span>Enviar mensagem no Instagram</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                             </a>
                         </div>

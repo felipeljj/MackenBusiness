@@ -25,9 +25,10 @@
 }
 
 .logo-svg {
-    height: 40px;
-    width: auto;
-    color: white;
+    width: 88px;
+    height: 38px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .nav-links {

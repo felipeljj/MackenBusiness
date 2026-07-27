@@ -66,7 +66,6 @@ const Hero = () => {
                     Empowering your brand with exceptional digital craftsmanship.
                 </motion.p>
                 <div className="hero-cta reveal delay-3">
-                    <a href="#portfolio" className="btn btn-primary">View Cases</a>
                     <a href="#contact" className="btn btn-secondary">Partner With Us</a>
                 </div>
             </div>

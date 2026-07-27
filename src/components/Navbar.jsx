@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import logo from '../assets/logo.svg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -18,11 +17,9 @@ const Navbar = () => {
         <nav className={`navbar hidden-onload ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">
                 <a href="#home" className="logo hoverable">
-                    <img src={logo} alt="MACKEN Logo" className="logo-svg" />
+                    <img src="/macken-logo.png" alt="MACKEN Logo" className="logo-svg" />
                 </a>
                 <div className="nav-links">
-                    <a href="#about" className="nav-link hoverable">About</a>
-                    <a href="#portfolio" className="nav-link hoverable">Portfolio</a>
                     <a href="#contact" className="nav-link btn-contact hoverable">Let's Talk</a>
                 </div>
             </div>

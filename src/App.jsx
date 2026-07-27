@@ -3,11 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
 
-import About from './components/About';
-import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
-import logo from './assets/logo.svg';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import './index.css';
@@ -68,14 +65,12 @@ function App() {
         <Hero />
         <Stats />
 
-        <Portfolio />
         <Contact />
-        <About />
       </main>
       <footer>
         <div className="container footer-content">
           <div className="footer-logo">
-            <img src={logo} alt="MACKEN" className="logo-svg-small" style={{ height: '24px', color: 'white' }} />
+            <img src="/macken-logo.png" alt="MACKEN" className="logo-svg-small" />
           </div>
           <div className="footer-links" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <p style={{ margin: 0 }}>&copy; {new Date().getFullYear()} MACKEN B2B White Label. All rights reserved.</p>
@@ -95,6 +90,13 @@ function App() {
           display: flex;
           justify-content: space-between;
           align-items: center;
+        }
+
+        .logo-svg-small {
+          width: 60px;
+          height: 26px;
+          object-fit: cover;
+          object-position: center;
         }
         
         @media (max-width: 768px) {
